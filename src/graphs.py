@@ -22,9 +22,8 @@ def single_graph(df, x_col, y_col):
     plt.xlabel(x_col)
     plt.ylabel(y_col)
     plt.title(title)
-
-
     plt.show()
+
     return
 
 
@@ -43,7 +42,6 @@ def graph_df_strike_duration_selection(df, duration, strike, x_col, y_col):
     temp_df = df[(df.Duration == duration) & (df.Strike == strike)]
     print(f'Strike = {strike}, Duration = {duration}')
     single_graph(temp_df, x_col, y_col)
-
 
     return
 
@@ -118,5 +116,37 @@ def plot_different_duration_values(df, strike=30, x_col="Dates", y_col="Real_imp
     plt.ylabel(y_col)
     plt.title(title, fontsize=14)
     plt.show()
+
+    return
+
+
+def double_graph(df, duration1, strike1, duration2, strike2, x_col, y_col):
+    """
+    Plots to options, option 1 with strike1 and duration 1, option 2 with strike2 and duration2.
+
+    :param df: pandas df
+    :param duration1: duration of the option1 ("6M", "1Y", "18M", "2Y", "3Y")
+    :param strike1: strike of option1 (int)
+    :param duration2: duration of the option2 ("6M", "1Y", "18M", "2Y", "3Y")
+    :param strike2: strike of option2 (int)
+    :param x_col: str
+    :param y_col: str
+    :return: None
+    """
+    temp_df1 = df[(df.Duration == duration1) & (df.Strike == strike1)]
+    temp_df2 = df[(df.Duration == duration2) & (df.Strike == strike2)]
+
+    title = f'{y_col} for strike-duration : {strike1}, {duration1} \
+    and strike-duration : {strike2}, {duration2}'
+
+    plt.figure(figsize=(14, 8))
+    plt.plot(temp_df1[x_col], temp_df1[y_col], marker='', color="midnightblue", \
+             linewidth=1, alpha=1, label=(strike1, duration1))
+    plt.plot(temp_df2[x_col], temp_df2[y_col], marker='', color="red", \
+             linewidth=1, alpha=1, label=(strike2, duration2))
+    plt.xlabel(x_col)
+    plt.ylabel(y_col)
+    plt.legend(ncol=2, title='Strike-Duration', title_fontsize=12)
+    plt.title(title)
 
     return

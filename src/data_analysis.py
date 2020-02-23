@@ -39,7 +39,7 @@ def create_corr_table(df):
     strikes = list(np.unique(df.Strike.values))
 
     dur_str1 = [DS_tuples(d, s) for d in durations for s in strikes]
-    dur_str2 = dur_str
+    dur_str2 = dur_str1
 
     duration1, duration2, strike1, strike2, correlations = [], [], [], [], []
 
@@ -48,15 +48,16 @@ def create_corr_table(df):
             d1, s1 = ds1[0], ds1[1]
             d2, s2 = ds2[0], ds2[1]
 
-            if d1 <= d2:
-                corr = get_corr(df, s1, d1, s2, d2)
+            if d1 < d2:
+                if not ((d1 == d2) and (s1 == s2)):
+                    corr = get_corr(df, s1, d1, s2, d2)
 
-                # Save results
-                duration1.append(d1)
-                duration2.append(d2)
-                strike1.append(s1)
-                strike2.append(s2)
-                correlations.append(corr[0])
+                    # Save results
+                    duration1.append(d1)
+                    duration2.append(d2)
+                    strike1.append(s1)
+                    strike2.append(s2)
+                    correlations.append(corr[0])
 
     corr_dict = {"Duration1": duration1, "Strike1": strike1, "Duration2": duration2, "Strike2": strike2,\
                  "Pearson correlation": correlations}
