@@ -41,7 +41,9 @@ def graph_df_strike_duration_selection(df, duration, strike, x_col, y_col):
     """
 
     temp_df = df[(df.Duration == duration) & (df.Strike == strike)]
+    print(f'Strike = {strike}, Duration = {duration}')
     single_graph(temp_df, x_col, y_col)
+
 
     return
 
