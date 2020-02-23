@@ -2,6 +2,14 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 def single_graph(df, x_col, y_col):
+    """
+    Plots the y_col as a function of the x_col
+
+    :param df: pandas df
+    :param x_col: str (col of df)
+    :param y_col: str (col of df)
+    :return: None
+    """
     title = f'{x_col} vs {y_col}'
     plt.figure(figsize=(14, 8))
 
@@ -21,6 +29,16 @@ def single_graph(df, x_col, y_col):
 
 
 def graph_df_strike_duration_selection(df, duration, strike, x_col, y_col):
+    """
+    Plots for different strike and duration values
+
+    :param df: pandas df
+    :param duration: duration of the option ("6M", "1Y", "18M", "2Y", "3Y")
+    :param strike: strike of the option (30, 40, 60, 80, 90, 100, 110, 120, 140)
+    :param x_col: str (col of df)
+    :param y_col: str (col of df)
+    :return: None
+    """
 
     temp_df = df[(df.Duration == duration) & (df.Strike == strike)]
     single_graph(temp_df, x_col, y_col)
