@@ -8,6 +8,17 @@ def get_subtable(df, strike, duration):
 
 
 def get_corr(df, strike1, duration1, strike2, duration2):
+    """
+    Returns the Pearson correlation coefficient between the implied volatity of the time series of two options,
+    option 1 and 2 with strike1 and duration1, and strike2 and duration2 respectively.
+
+    :param df: pandas df
+    :param strike1: strike value of option 1, int
+    :param duration1: duration of option 1, str (one from: ["6M", "1Y", "18M", "2Y", "3Y"])
+    :param strike2: strike value of option 2, int
+    :param duration2: duration of option 2, str (one from: ["6M", "1Y", "18M", "2Y", "3Y"])
+    :return:
+    """
     df1 = get_subtable(df, strike1, duration1)
     df2 = get_subtable(df, strike2, duration2)
 
@@ -15,6 +26,12 @@ def get_corr(df, strike1, duration1, strike2, duration2):
 
 
 def create_corr_table(df):
+    """
+    Returns a pandas dataframe with Pearson correlation coefficient for each strike-duration pair.
+
+    :param df: pandas df
+    :return: pandas df
+    """
     DS_tuples = collections.namedtuple('Durations_strikes', ['duration', 'strike'])
 
     durations = ["6M", "1Y", "18M", "2Y", "3Y"]
@@ -41,5 +58,7 @@ def create_corr_table(df):
                 strike2.append(s2)
                 correlations.append(corr[0])
 
-    corr_dict = {"d1": duration1, "s1": strike1, "d2": duration2, "s2": strike2, "correlations": correlations}
+    corr_dict = {"Duration1": duration1, "Strike1": strike1, "Duration2": duration2, "Strike2": strike2,\
+                 "Pearson correlation": correlations}
+
     return pd.DataFrame(corr_dict)
