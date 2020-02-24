@@ -22,7 +22,7 @@ def get_corr(df, strike1, duration1, strike2, duration2):
     df1 = get_subtable(df, strike1, duration1)
     df2 = get_subtable(df, strike2, duration2)
 
-    return pd.DataFrame(df1.Implied_vol).corrwith(pd.DataFrame(df2.Implied_vol))
+    return pd.DataFrame(df1.Change_in_implied_vol).corrwith(pd.DataFrame(df2.Change_in_implied_vol))
 
 
 def create_corr_table(df):
