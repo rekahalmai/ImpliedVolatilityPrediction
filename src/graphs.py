@@ -66,7 +66,7 @@ def plot_different_strike_values(df, duration="6M", x_col="Dates", y_col="Real_i
               "ytick.color": "black"}
     plt.rcParams.update(params)
 
-    title = f'{x_col} vs {y_col} for different strike values and {duration} duration'
+    title = f'{x_col} vs {y_col} for different strike values and {duration} maturity'
     col_count = 0
 
     for s in strikes:
@@ -85,7 +85,7 @@ def plot_different_strike_values(df, duration="6M", x_col="Dates", y_col="Real_i
 
 def plot_different_duration_values(df, strike=30, x_col="Dates", y_col="Real_implied_vol"):
     """
-    Plots the x_col and y_col for different duration values
+    Plots the x_col and y_col for different maturity (duration) values
 
     :param df: pandas df
     :param strike: strike of the option (30, 40, 60, 80, 90, 100, 110, 120, 140)
@@ -103,7 +103,7 @@ def plot_different_duration_values(df, strike=30, x_col="Dates", y_col="Real_imp
               "ytick.color": "black"}
     plt.rcParams.update(params)
 
-    title = f'{x_col} vs {y_col} for different duration values and {strike} strike'
+    title = f'{x_col} vs {y_col} for different maturity values and {strike} strike'
     col_count = 0
 
     for d in durations:
@@ -111,7 +111,7 @@ def plot_different_duration_values(df, strike=30, x_col="Dates", y_col="Real_imp
         plt.plot(temp_df[x_col], temp_df[y_col], marker='', color=palette(col_count), \
                  linewidth=1, alpha=1, label=d)
         col_count += 1
-    plt.legend(ncol=2, title='Duration', title_fontsize=12)
+    plt.legend(ncol=2, title='Maturity', title_fontsize=12)
     plt.xlabel(x_col)
     plt.ylabel(y_col)
     plt.title(title, fontsize=14)
@@ -136,8 +136,8 @@ def double_graph(df, duration1, strike1, duration2, strike2, x_col, y_col):
     temp_df1 = df[(df.Duration == duration1) & (df.Strike == strike1)]
     temp_df2 = df[(df.Duration == duration2) & (df.Strike == strike2)]
 
-    title = f'{y_col} for strike-duration : {strike1}, {duration1} \
-    and strike-duration : {strike2}, {duration2}'
+    title = f'{y_col} for Strike-Maturity : {strike1}, {duration1} \
+    and Strike-Maturity : {strike2}, {duration2}'
 
     plt.figure(figsize=(14, 8))
     plt.plot(temp_df1[x_col], temp_df1[y_col], marker='', color="midnightblue", \
@@ -146,7 +146,7 @@ def double_graph(df, duration1, strike1, duration2, strike2, x_col, y_col):
              linewidth=1, alpha=1, label=(strike2, duration2))
     plt.xlabel(x_col)
     plt.ylabel(y_col)
-    plt.legend(ncol=2, title='Strike-Duration', title_fontsize=12)
+    plt.legend(ncol=2, title='Strike-Maturity', title_fontsize=12)
     plt.title(title)
 
     return
