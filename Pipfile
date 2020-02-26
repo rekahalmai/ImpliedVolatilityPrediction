@@ -1,6 +1,13 @@
 [requires]
-python_version = "3.7"
+python_version = "3.8.1"
 
 [packages]
-pandas = "==1.0.1"
-seaborn = "==0.10.0"
+
+keras = "*"
+tensorflow = "*"
+numpy = "*"
+setuptools = "*"
+
+[dev]
+nose = '*'
+

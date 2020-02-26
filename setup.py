@@ -1,7 +1,4 @@
 from setuptools import find_packages, setup
-import os
-import sys
-
 
 setup(
     name='src',
@@ -11,7 +8,3 @@ setup(
     author='reka',
     license='',
 )
-
-p = os.path.abspath('..')
-if p not in sys.path:
-    sys.path.append(p)
