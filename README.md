@@ -43,14 +43,14 @@ src
     └── ts_tests                           # TS tests and methods functions 
 ````
 
-#### Models and results
+# Models and results
  
-###### EDA-sx5e and EDA-spx notebooks: 
+## EDA-sx5e and EDA-spx notebooks: 
 Data exploration. Graphed the implied volatility and the "Change_in_implied_vol" for all strike-maturity combination. 
 High correlation between the TS is observed (used stat: Pearson correlation). 
 Conclusion: there is a strong correlation between the individual TS, a method that link them together might be preferred. 
 
-###### TS_EDA_and_tests notebook: 
+## TS_EDA_and_tests notebook: 
 Check TS statistics, (such as the ADF-test, ACF, PACF) individually for the TS of change_in_implied_vol for each 
 strike-maturity option. 
 
@@ -66,7 +66,7 @@ changes - random walk type TS. No trend or seasonality is observed.
 the model is unable to differentiate between these. 
 
 
-##### ARIMA notebook: 
+## ARIMA notebook: 
 This notebook contains AR, MA, ARIMA, SARIMA and ES models for one TS. 
 
 Results: 
@@ -79,4 +79,4 @@ The model is also too slow to be trained on all data - only trained on 100 past 
 non-automatic parameter selection, slow training, very high desired lags and lack of forecasting capacity. If the 
 model is well-trained, it gives predictions around the mean. SARIMA models give even worse results. 
 
-##### DeepAR notebook: 
+## DeepAR notebook: 
