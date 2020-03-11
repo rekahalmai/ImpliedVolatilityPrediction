@@ -2,7 +2,8 @@
 
 The repository contains time-series modeling approaches and stock option data from 2006-12-01 to 2015-10-0. 
 
-The repository can be initialized in a docker container if desktop docker is available (download: https://docs.docker.com/install/) by the following commands: 
+The repository can be initialized in a docker container if desktop docker is available 
+(download: https://docs.docker.com/install/) by the following commands: 
 
 ###### Create docker image 
 ``docker build -t vol_prediction .``
@@ -11,7 +12,9 @@ The repository can be initialized in a docker container if desktop docker is ava
 
 ``docker run --name vol_prediction ``
 
-The Dockerfile contains the necessary package installations. If you want to run the code without the container, use the pip-tools package to install all packages. In this case create a virtual environment in Python 3.7, and run the following terminal command from the repository:  
+The Dockerfile contains the necessary package installations. If you want to run the code without the container, 
+use the pip-tools package to install all packages. In this case create a virtual environment in Python 3.7, 
+and run the following terminal command from the repository:  
 ``pip3 install pip-tools``
 
 ``pip-compile requirements.in``
@@ -31,7 +34,7 @@ data
     └── spx_weekly.xlsx                    # changed dataset for easier import 
 notebooks 
     └── ARIMA                              # AR, MA, ARIMA, SARIMA models
-    └── DeepAR                             # DeepAR model 
+    └── deepar_model_intro                 # DeepAR model 
     └── EDA-spx                            # EDA for the sx5 data 
     └── EDA-sx5e                           # EDA for the sx5 data
     └── TS_EDA_and_tests                   # Stationarity, exponential moving average EDA 
@@ -81,3 +84,10 @@ non-automatic parameter selection, slow training, very high desired lags and lac
 model is well-trained, it gives predictions around the mean. SARIMA models give poorer results. 
 
 ## DeepAR notebook: 
+This notebooks contains a DeepAR (https://arxiv.org/pdf/1704.04110.pdf) model example for the time series, implemented 
+by the package gluonts (https://gluon-ts.mxnet.io/api/gluonts/gluonts.model.deepar.html). 
+
+The idea of the model is to train a probabilistic AR recurrent network on many individual but highly correlated 
+time series. The model learns a global model on all TS. 
+
+
