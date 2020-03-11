@@ -4,7 +4,7 @@ The repository contains time-series modeling approaches and stock option data fr
 
 The repository can be initialized in a docker container if desktop docker is available (download: https://docs.docker.com/install/) by the following commands: 
 
-####### Create docker image 
+###### Create docker image 
 ``docker build -t vol_prediction .``
 
 ###### Start a docker container by running: 
@@ -79,4 +79,4 @@ The model is also too slow to be trained on all data - only trained on 100 past 
 non-automatic parameter selection, slow training, very high desired lags and lack of forecasting capacity. If the 
 model is well-trained, it gives predictions around the mean. SARIMA models give even worse results. 
 
-
+##### DeepAR notebook: 
