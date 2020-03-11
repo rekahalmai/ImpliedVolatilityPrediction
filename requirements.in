@@ -1,0 +1,10 @@
+
+numpy
+gluonts
+mxnet
+matplotlib
+pandas
+xlrd 
+notebook
+statsmodels
+pmdarima
