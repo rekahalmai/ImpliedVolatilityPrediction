@@ -15,3 +15,4 @@ setup(
 p = os.path.abspath('..')
 if p not in sys.path:
     sys.path.append(p)
+
