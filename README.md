@@ -70,13 +70,14 @@ the model is unable to differentiate between these.
 This notebook contains AR, MA, ARIMA, SARIMA and ES models for one TS. 
 
 Results: 
-- poor results, if model size increases, training time does too. Predictions center around 0, 
+- Poor results, models predict around the mean.  Model size poses a problem: if model size increases, 
+training time does too. More lags would be needed to remove autocorrelation between lagged values. 
 - Combination of AR and MA models give better results than individual AR or MA ones, even with increased lags. 
 - SARIMA package is unstable, takes a very long time to train and gives worse results than simpler ARIMA models. 
 The model is also too slow to be trained on all data - only trained on 100 past observations. 
 - Exponential Smoothing model gives very poor results, can be neglected. 
 - Conclusion: AR, MA and ARIMA models are not suitable for this data as a consequence of individual, slow and 
 non-automatic parameter selection, slow training, very high desired lags and lack of forecasting capacity. If the 
-model is well-trained, it gives predictions around the mean. SARIMA models give even worse results. 
+model is well-trained, it gives predictions around the mean. SARIMA models give poorer results. 
 
 ## DeepAR notebook: 
