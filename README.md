@@ -83,7 +83,7 @@ The model is also too slow to be trained on all data - only trained on 100 past 
 non-automatic parameter selection, slow training, very high desired lags and lack of forecasting capacity. If the 
 model is well-trained, it gives predictions around the mean. SARIMA models give poorer results. 
 
-## DeepAR notebook: 
+## deepar_model_intro notebook: 
 This notebooks contains a DeepAR (https://arxiv.org/pdf/1704.04110.pdf) model example for the time series, implemented 
 by the package gluonts (https://gluon-ts.mxnet.io/api/gluonts/gluonts.model.deepar.html). 
 
