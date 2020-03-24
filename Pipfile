@@ -1,6 +1,0 @@
-[requires]
-python_version = "3.7"
-
-[packages]
-pandas = "==1.0.1"
-seaborn = "==0.10.0"
